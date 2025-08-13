@@ -1,28 +1,51 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
     const togglePassword = document.getElementById('togglePassword');
     const signupForm = document.querySelector('.signup-form');
     const backButton = document.querySelector('.back-button');
     const requirements = document.querySelectorAll('.requirement');
+    const eyeOpen = document.getElementById('eyeOpen');
+    const eyeClosed = document.getElementById('eyeClosed');
 
-    togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.textContent = type === 'password' ? '👁' : '🙈';
+    togglePassword.addEventListener('click', function () {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+    
+        if (isPassword) {
+            // 顯示「閉眼」圖示
+            eyeClosed.classList.remove('hidden');
+            eyeOpen.classList.add('hidden');
+        } else {
+            // 顯示「開眼」圖示
+            eyeClosed.classList.add('hidden');
+            eyeOpen.classList.remove('hidden');
+        }
     });
 
     passwordInput.addEventListener('input', function() {
         const password = this.value;
         const hasMinLength = password.length >= 8;
         const hasNumber = /\d/.test(password);
-
-        requirements[0].style.color = hasMinLength ? '#16a34a' : '#9ca3af';
-        requirements[1].style.color = hasNumber ? '#16a34a' : '#9ca3af';
-        
-        requirements[0].innerHTML = `${hasMinLength ? '✓' : '○'} 8 Characters min.`;
-        requirements[1].innerHTML = `${hasNumber ? '✓' : '○'} One number`;
+    
+        toggleIcon(requirements[0], hasMinLength);
+        toggleIcon(requirements[1], hasNumber);
     });
-
+    
+    function toggleIcon(requirementEl, passed) {
+        const iconCheck = requirementEl.querySelector('.icon-check');
+        const iconUncheck = requirementEl.querySelector('.icon-uncheck');
+    
+        if (passed) {
+            iconCheck.classList.remove('hidden');
+            iconUncheck.classList.add('hidden');
+            requirementEl.style.color = '#16a34a';
+        } else {
+            iconCheck.classList.add('hidden');
+            iconUncheck.classList.remove('hidden');
+            requirementEl.style.color = '#9ca3af';
+        }
+    }
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
         

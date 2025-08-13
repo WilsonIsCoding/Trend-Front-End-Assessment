@@ -6,45 +6,66 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #F1F5FF;
     color: #333;
     line-height: 1.5;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
-    max-width: 480px;
+    width: 100%;
+    max-width: 610px;
     margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
+    padding: 16px;
+    background: white;
+    max-height: 635px;
 }
 
 .back-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 40px;
+    display: inline-block;
+    margin-bottom: 30px;
     cursor: pointer;
-    color: #666;
+    color: black;
     font-size: 16px;
+    transition: all 0.2s ease;
 }
 
 .back-icon {
     font-size: 18px;
 }
 
+.back-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.back-button:hover .back-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3C71FF;
+}
+
 .form-container {
-    background: white;
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 401px;
+    margin: 0 auto;
 }
 
 .form-header {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 
 .subtitle {
-    color: #666;
+    color: black;
     font-size: 14px;
     margin-bottom: 8px;
     font-weight: 400;
@@ -59,7 +80,7 @@ body {
 
 .social-buttons {
     display: flex;
-    gap: 12px;
+    gap: 19px;
     margin-bottom: 24px;
 }
 
@@ -69,9 +90,9 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 16px;
-    border: 1px solid #e1e5e9;
-    border-radius: 8px;
+    padding: 15px 6px;
+    border: 1px solid #3C71FF;
+    border-radius: 4px;
     background: white;
     font-size: 14px;
     font-weight: 500;
@@ -82,19 +103,16 @@ body {
 
 .social-btn:hover {
     background-color: #3C71FF;
+    color:white;
 }
 
 
 .facebook-btn {
-    color: #1877f2;
+    color: black;
 }
 .google-btn {
-    color: #1a73e8;
+    color: black;
 
-}
-
-.facebook-btn {
-    color: #1877f2;
 }
 
 .google-icon, .facebook-icon {
@@ -111,14 +129,13 @@ body {
 .google-icon {
     background: transparent;
     color: #1a73e8;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .facebook-icon {
     background: transparent;
     color: #1877f2;
-    font-size: 14px;
-    font-style: italic;
+    font-size: 16px;
 }
 
 .social-btn:hover .google-icon {
@@ -133,9 +150,9 @@ body {
 
 .divider {
     position: relative;
-    text-align: center;
-    margin: 32px 0;
-    color: #666;
+    text-align: left;
+    margin: 20px 0;
+    color: black;
     font-size: 14px;
 }
 
@@ -146,13 +163,13 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: #e1e5e9;
+    background: black;
     z-index: 1;
 }
 
 .divider span {
     background: white;
-    padding: 0 16px;
+    padding-right: 16px;
     position: relative;
     z-index: 2;
 }
@@ -160,7 +177,6 @@ body {
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
 
 .form-row {
@@ -170,19 +186,15 @@ body {
 
 .form-input {
     padding: 14px 16px;
-    border: 1px solid #e1e5e9;
-    border-radius: 8px;
-    font-size: 16px;
-    background: #f8f9fa;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #F1F5FF;
     transition: all 0.2s ease;
+    margin-bottom:12px;
     outline: none;
 }
 
-.form-input:focus {
-    border-color: #4285f4;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
-}
 
 .form-input::placeholder {
     color: #9ca3af;
@@ -191,60 +203,123 @@ body {
 .full-width {
     width: 100%;
 }
+.half-width {
+    width: 50%;
+}
 
 .password-container {
     position: relative;
+    width: 100%;
+    margin-bottom:12px;
+}
+
+.password-container .form-input {
+    padding-right: 45px;
 }
 
 .password-toggle {
     position: absolute;
     right: 16px;
-    top: 50%;
+    top: 37%;
     transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     color: #666;
-    padding: 0;
+    padding: 4px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.password-requirements {
+.requirements {
     display: flex;
     gap: 16px;
-    margin-top: -8px;
-    margin-bottom: 8px;
+    margin-top: -16px;
 }
 
 .requirement {
     font-size: 12px;
-    color: #16a34a;
+    color: #9ca3af;
     display: flex;
     align-items: center;
     gap: 4px;
 }
+.requirement img {
+    width: 16px;
+    height: 16px;
+}
+
+.hidden {
+    display: none;
+}
 
 .checkbox-container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     margin: 8px 0;
 }
 
 .checkbox-container input[type="checkbox"] {
-    margin-top: 2px;
-    transform: scale(1.1);
-}
-
-.checkbox-container label {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
 }
 
+.checkbox-container label {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    padding-left: 28px;
+}
+
+.checkbox-container label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #D3D3D3;
+    background-color: #D3D3D3;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    transform: translateY(-50%);
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::before {
+    background-color: white;
+    border-color: #3C71FF;
+}
+
+.checkbox-container label::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 11px;
+    width: 10px;
+    height: 6px;
+    border-left: 2px solid #3C71FF;
+    border-bottom: 2px solid #3C71FF;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::after {
+    opacity: 1;
+}
+
 .create-btn {
-    background: #4285f4;
+    background:#3C71FF;
     color: white;
     padding: 16px;
     border: none;
@@ -252,16 +327,18 @@ body {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
     margin-top: 8px;
+    position: relative;
 }
 
 .create-btn:hover {
-    background: #3367d6;
+    box-shadow: 0 15px 40px rgba(60, 113, 255, 0.4);
 }
 
 .create-btn:active {
     background: #2248a8;
+    box-shadow: 0 5px 15px rgba(60, 113, 255, 0.4);
 }
 
 .login-link {
