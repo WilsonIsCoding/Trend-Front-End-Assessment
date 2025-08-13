@@ -184,9 +184,9 @@ body {
 }
 
 .form-input {
-    padding: 14px 16px;
     border: none;
     border-radius: 4px;
+    padding:22px 10px 10px 10px;
     font-size: 14px;
     background: #F1F5FF;
     transition: all 0.2s ease;
@@ -194,10 +194,35 @@ body {
     outline: none;
 }
 
-
 .form-input::placeholder {
     color: #9ca3af;
 }
+
+.field {
+  position: relative;
+}
+
+/* Floating label */
+.field label {
+    position: absolute;
+    left: 10px;
+    top: 40%;
+    color: #757575;
+    font-size: 14px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    padding: 0 4px;
+    transform: translateY(-50%);
+  }
+  
+  .field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: 5px;
+  left:5px;
+  font-size: 10px;
+  transform: none;
+}
+
 
 .full-width {
     width: 100%;
@@ -219,7 +244,7 @@ body {
 .password-toggle {
     position: absolute;
     right: 16px;
-    top: 37%;
+    top: 36%;
     transform: translateY(-50%);
     background: none;
     border: none;

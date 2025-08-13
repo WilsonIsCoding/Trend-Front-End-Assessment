@@ -49,9 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const firstName = this.querySelector('input[placeholder="First Name"]');
-        const lastName = this.querySelector('input[placeholder="Last Name"]');
-        const email = this.querySelector('input[placeholder="E-mail"]');
+        const form = document.querySelector('form');
+        const firstName = form.querySelector('#firstName');
+        const lastName = form.querySelector('#lastName');
+        const email = form.querySelector('#email');
         const password = passwordInput;
         const termsAccepted = this.querySelector('#terms').checked;
         const errorMessage = document.getElementById('error-message');

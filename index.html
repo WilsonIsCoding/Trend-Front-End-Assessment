@@ -10,8 +10,9 @@
     <div class="container">
         <div class="back-button">
             <div class="back-text">
-            <span class="back-icon">←</span>
-            <span >Back</span></div>
+                <span class="back-icon">←</span>
+                <span>Back</span>
+            </div>
         </div>
         
         <div class="form-container">
@@ -42,14 +43,26 @@
             
             <form class="signup-form">
                 <div class="form-row">
-                    <input type="text" placeholder="First Name" class="form-input half-width" >
-                    <input type="text" placeholder="Last Name" class="form-input half-width" >
+                    <div class="field half-width">
+                        <input type="text" class="form-input full-width" placeholder="" id="firstName">
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="field half-width">
+                        <input type="text" class="form-input full-width" placeholder="" id="lastName">
+                        <label for="lastName">Last Name</label>
+                    </div>
                 </div>
                 
-                <input type="email" placeholder="E-mail" class="form-input full-width">
+                <div class="field">
+                    <input type="email" class="form-input full-width" placeholder="" id="email">
+                    <label for="email">E-mail</label>
+                </div>
                 
                 <div class="password-container">
-                    <input type="password" placeholder="Password" class="form-input full-width" id="password">
+                    <div class="field">
+                        <input type="password" class="form-input full-width" placeholder="" id="password">
+                        <label for="password">Password</label>
+                    </div>
                     <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">
                         <img id="eyeOpen" src="images/default_view.svg" alt="Show password">
                         <img id="eyeClosed" src="images/active_view.svg" alt="Hide password" class="hidden">
@@ -58,17 +71,17 @@
                 
                 <div class="password-requirements">
                     <div class="requirements">
-                    <span class="requirement">
-                        <img class="icon-check hidden" src="images/check.svg" alt="checked">
-                        <img class="icon-uncheck" src="images/uncheck.svg" alt="unchecked">
-                        8 Characters min.
-                    </span>
-                    <span class="requirement">
-                        <img class="icon-check hidden" src="images/check.svg" alt="checked">
-                        <img class="icon-uncheck" src="images/uncheck.svg" alt="unchecked">
-                        One number
-                    </span>
-                </div>
+                        <span class="requirement">
+                            <img class="icon-check hidden" src="images/check.svg" alt="checked">
+                            <img class="icon-uncheck" src="images/uncheck.svg" alt="unchecked">
+                            8 Characters min.
+                        </span>
+                        <span class="requirement">
+                            <img class="icon-check hidden" src="images/check.svg" alt="checked">
+                            <img class="icon-uncheck" src="images/uncheck.svg" alt="unchecked">
+                            One number
+                        </span>
+                    </div>
                 </div>
                 
                 <div class="checkbox-container">
