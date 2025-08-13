@@ -49,25 +49,73 @@ document.addEventListener('DOMContentLoaded', function() {
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const formData = new FormData(this);
-        const firstName = this.querySelector('input[placeholder="First Name"]').value;
-        const lastName = this.querySelector('input[placeholder="Last Name"]').value;
-        const email = this.querySelector('input[placeholder="E-mail"]').value;
-        const password = passwordInput.value;
+        const firstName = this.querySelector('input[placeholder="First Name"]');
+        const lastName = this.querySelector('input[placeholder="Last Name"]');
+        const email = this.querySelector('input[placeholder="E-mail"]');
+        const password = passwordInput;
         const termsAccepted = this.querySelector('#terms').checked;
-
-        if (!firstName || !lastName || !email || !password || !termsAccepted) {
-            alert('Please fill in all fields and accept the terms.');
+        const errorMessage = document.getElementById('error-message');
+        
+        // Reset error states
+        [firstName, lastName, email, password].forEach(input => {
+            input.classList.remove('error');
+        });
+        errorMessage.classList.remove('show');
+        
+        // Check for empty fields
+        let hasError = false;
+        
+        if (!firstName.value.trim()) {
+            firstName.classList.add('error');
+            hasError = true;
+        }
+        
+        if (!lastName.value.trim()) {
+            lastName.classList.add('error');
+            hasError = true;
+        }
+        
+        if (!email.value.trim()) {
+            email.classList.add('error');
+            hasError = true;
+        }
+        
+        if (!password.value.trim()) {
+            password.classList.add('error');
+            hasError = true;
+        }
+        
+        if (!termsAccepted) {
+            hasError = true;
+        }
+        
+        if (hasError) {
+            errorMessage.classList.add('show');
             return;
         }
 
-        if (password.length < 8 || !/\d/.test(password)) {
-            alert('Password must be at least 8 characters long and contain at least one number.');
+        if (password.value.length < 8 || !/\d/.test(password.value)) {
+            password.classList.add('error');
+            errorMessage.classList.add('show');
             return;
         }
 
         alert('Account created successfully! (This is a demo)');
-        console.log('Form submitted:', { firstName, lastName, email, termsAccepted });
+        console.log('Form submitted:', { 
+            firstName: firstName.value, 
+            lastName: lastName.value, 
+            email: email.value, 
+            termsAccepted 
+        });
+    });
+    
+    // Remove error state when user starts typing
+    document.querySelectorAll('.form-input').forEach(input => {
+        input.addEventListener('input', function() {
+            if (this.value.trim()) {
+                this.classList.remove('error');
+            }
+        });
     });
 
     backButton.addEventListener('click', function() {

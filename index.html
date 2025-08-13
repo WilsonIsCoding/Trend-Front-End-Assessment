@@ -20,6 +20,11 @@
                 <h1>Create an account</h1>
             </div>
             
+            <div id="error-message" class="error-message">
+                <span class="error-icon">!</span>
+                <span class="error-text">Please complete all the required fields to proceed.</span>
+            </div>
+            
             <div class="social-buttons">
                 <button class="social-btn google-btn">
                     <span class="google-icon">G</span>
@@ -37,14 +42,14 @@
             
             <form class="signup-form">
                 <div class="form-row">
-                    <input type="text" placeholder="First Name" class="form-input half-width" required>
-                    <input type="text" placeholder="Last Name" class="form-input half-width" required>
+                    <input type="text" placeholder="First Name" class="form-input half-width" >
+                    <input type="text" placeholder="Last Name" class="form-input half-width" >
                 </div>
                 
-                <input type="email" placeholder="E-mail" class="form-input full-width" required>
+                <input type="email" placeholder="E-mail" class="form-input full-width">
                 
                 <div class="password-container">
-                    <input type="password" placeholder="Password" class="form-input full-width" id="password" required>
+                    <input type="password" placeholder="Password" class="form-input full-width" id="password">
                     <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">
                         <img id="eyeOpen" src="images/default_view.svg" alt="Show password">
                         <img id="eyeClosed" src="images/active_view.svg" alt="Hide password" class="hidden">
