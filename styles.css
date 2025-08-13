@@ -241,15 +241,15 @@ body {
 }
 
 .requirement {
-    font-size: 12px;
+    font-size: 10px;
     color: #9ca3af;
     display: flex;
     align-items: center;
     gap: 4px;
 }
 .requirement img {
-    width: 16px;
-    height: 16px;
+    width: 11px;
+    height: 11px;
 }
 
 .hidden {
@@ -359,20 +359,21 @@ body {
 }
 
 @media (max-width: 640px) {
+    body{
+        background: white;
+        align-items: start;
+    }
+    .back-button{
+        margin-bottom: 5px;
+        margin-left:16px;
+    }
     .container {
-        padding: 16px;
+        padding: 20px 0 0 0;
     }
     
     .form-container {
-        padding: 24px;
+        padding: 0px;
     }
     
-    .social-buttons {
-        flex-direction: column;
-    }
     
-    .form-row {
-        flex-direction: column;
-        gap: 16px;
-    }
 }
