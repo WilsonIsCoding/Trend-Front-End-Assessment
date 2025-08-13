@@ -9,8 +9,9 @@
 <body>
     <div class="container">
         <div class="back-button">
+            <div class="back-text">
             <span class="back-icon">←</span>
-            <span>Back</span>
+            <span >Back</span></div>
         </div>
         
         <div class="form-container">
@@ -36,20 +37,33 @@
             
             <form class="signup-form">
                 <div class="form-row">
-                    <input type="text" placeholder="First Name" class="form-input" required>
-                    <input type="text" placeholder="Last Name" class="form-input" required>
+                    <input type="text" placeholder="First Name" class="form-input half-width" required>
+                    <input type="text" placeholder="Last Name" class="form-input half-width" required>
                 </div>
                 
                 <input type="email" placeholder="E-mail" class="form-input full-width" required>
                 
                 <div class="password-container">
                     <input type="password" placeholder="Password" class="form-input full-width" id="password" required>
-                    <button type="button" class="password-toggle" id="togglePassword">👁</button>
+                    <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">
+                        <img id="eyeOpen" src="images/default_view.svg" alt="Show password">
+                        <img id="eyeClosed" src="images/active_view.svg" alt="Hide password" class="hidden">
+                    </button>
                 </div>
                 
                 <div class="password-requirements">
-                    <span class="requirement">✓ 8 Characters min.</span>
-                    <span class="requirement">✓ One number</span>
+                    <div class="requirements">
+                    <span class="requirement">
+                        <img class="icon-check hidden" src="images/check.svg" alt="checked">
+                        <img class="icon-uncheck" src="images/uncheck.svg" alt="unchecked">
+                        8 Characters min.
+                    </span>
+                    <span class="requirement">
+                        <img class="icon-check hidden" src="images/check.svg" alt="checked">
+                        <img class="icon-uncheck" src="images/uncheck.svg" alt="unchecked">
+                        One number
+                    </span>
+                </div>
                 </div>
                 
                 <div class="checkbox-container">
