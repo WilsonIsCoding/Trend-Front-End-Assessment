@@ -67,7 +67,7 @@ body {
 
 .subtitle {
     color: black;
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 8px;
     font-weight: 400;
 }
@@ -202,13 +202,14 @@ body {
 
 .field {
   position: relative;
+  margin-bottom: 12px;
 }
 
 /* Floating label */
 .field label {
     position: absolute;
     left: 10px;
-    top: 40%;
+    top: 22px;
     color: #757575;
     font-size: 14px;
     pointer-events: none;
@@ -219,10 +220,10 @@ body {
   
   .field input:focus + label,
 .field input:not(:placeholder-shown) + label {
-  top: 5px;
+  top: 10px;
   left:5px;
   font-size: 10px;
-  transform: none;
+  transform: translateY(-50%);
 }
 
 
