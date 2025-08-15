@@ -13,12 +13,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .container {
     width: 100%;
-    max-height: 100vh;
-    overflow-y: auto;
     max-width: 610px;
     margin: 0 auto;
     padding: 16px;
@@ -192,7 +191,6 @@ body {
     font-size: 14px;
     background: #F1F5FF;
     transition: all 0.2s ease;
-    margin-bottom:12px;
     outline: none;
 }
 
@@ -409,7 +407,7 @@ body {
 
 .login-link {
     text-align: center;
-    margin-top: 24px;
+    margin-top: 20px;
     font-size: 14px;
     color: #666;
 }
