@@ -6,7 +6,14 @@ A responsive sign-up form interface built with vanilla HTML, CSS, and JavaScript
 
 ## Demo URL
 
-[Add your live demo URL here]
+[https://wilsoniscoding.github.io/Trend-Front-End-Assessment/](https://wilsoniscoding.github.io/Trend-Front-End-Assessment/)
+
+## Form Submission Data
+
+The form submissions are sent to a Google Apps Script endpoint and stored in a Google Sheets document. 
+
+- **View submitted data**: [Google Sheets](https://docs.google.com/spreadsheets/d/1H9CVmPXV2vBzHXG0HtJZnsPqi-7_DI5Un5bjh6oDYzQ/edit?gid=0#gid=0)
+- **View API source code**: [Google Apps Script](https://script.google.com/home/projects/1QnYzfxpYSvZzzWsbsIky9BaxuRXqR7Fad09MgKZC4QYagISMl-EqqW27/edit)
 
 ## Setup / View Instructions
 

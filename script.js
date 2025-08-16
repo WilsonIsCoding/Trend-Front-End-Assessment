@@ -101,12 +101,48 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        alert('Account created successfully! (This is a demo)');
-        console.log('Form submitted:', { 
-            firstName: firstName.value, 
-            lastName: lastName.value, 
-            email: email.value, 
-            termsAccepted 
+        // Show loading state
+        const submitButton = signupForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Creating account...';
+        
+        // Prepare data for API
+        const formData = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            email: email.value,
+            password: password.value
+        };
+        
+        // Send data to Google Apps Script endpoint
+        fetch('https://script.google.com/macros/s/AKfycbxPogJmt33Ue383U3TPDizNVUHLiHyEjH2krR13iE8MSX3Sr0rbxCBEekaL7_3k9Csr0A/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(() => {
+            // With no-cors mode, we can't read the response
+            // Assume success if no error thrown
+            alert('Account created successfully!');
+            // Reset form
+            signupForm.reset();
+            // Reset password requirements visual state
+            requirements.forEach(req => {
+                toggleIcon(req, false);
+            });
+        })
+        .catch((error) => {
+            console.error('Error submitting form:', error);
+            alert('An error occurred while creating your account. Please try again.');
+        })
+        .finally(() => {
+            // Restore button state
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
         });
     });
     
