@@ -1,4 +1,6 @@
 
+import { validateField, toggleVisibility } from './helpers.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
     const togglePassword = document.getElementById('togglePassword');
@@ -8,18 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const eyeOpen = document.getElementById('eyeOpen');
     const eyeClosed = document.getElementById('eyeClosed');
 
+
     togglePassword.addEventListener('click', function () {
         const isPassword = passwordInput.type === 'password';
         passwordInput.type = isPassword ? 'text' : 'password';
     
         if (isPassword) {
             // 顯示「閉眼」圖示
-            eyeClosed.classList.remove('hidden');
-            eyeOpen.classList.add('hidden');
+            toggleVisibility(eyeClosed, eyeOpen);
         } else {
             // 顯示「開眼」圖示
-            eyeClosed.classList.add('hidden');
-            eyeOpen.classList.remove('hidden');
+            toggleVisibility(eyeOpen, eyeClosed);
         }
     });
 
@@ -66,25 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check for empty fields
         let hasError = false;
         
-        if (!firstName.value.trim()) {
-            firstName.classList.add('error');
-            hasError = true;
-        }
-        
-        if (!lastName.value.trim()) {
-            lastName.classList.add('error');
-            hasError = true;
-        }
-        
-        if (!email.value.trim()) {
-            email.classList.add('error');
-            hasError = true;
-        }
-        
-        if (!password.value.trim()) {
-            password.classList.add('error');
-            hasError = true;
-        }
+        const fieldsToValidate = [firstName, lastName, email, password];
+        fieldsToValidate.forEach(field => {
+            if (!validateField(field)) {
+                hasError = true;
+            }
+        });
         
         if (!termsAccepted) {
             hasError = true;
@@ -125,12 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
             body: JSON.stringify(formData)
         })
         .then(() => {
-            // With no-cors mode, we can't read the response
-            // Assume success if no error thrown
             alert('Account created successfully!');
-            // Reset form
             signupForm.reset();
-            // Reset password requirements visual state
             requirements.forEach(req => {
                 toggleIcon(req, false);
             });
@@ -140,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('An error occurred while creating your account. Please try again.');
         })
         .finally(() => {
-            // Restore button state
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
         });
@@ -165,6 +148,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`${provider} signup clicked! (This is a demo)`);
         });
     });
-
-    console.log('Sign-up form loaded and ready!');
 });
